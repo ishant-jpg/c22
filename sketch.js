@@ -16,11 +16,11 @@ function setup() {
 	rectMode(CENTER);
 	
 
-	packageSprite=createSprite(width/2, 600, 10,10);
+	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
 
-	helicopterSprite=createSprite(width/2, 200, 10,10)*
+	helicopterSprite=createSprite(width/2, 200, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
@@ -31,11 +31,11 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.4, isStatic:true});
 	World.add(world, packageBody);
 	
- 
-	 r==round
+
+	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
@@ -55,12 +55,8 @@ function draw() {
 }
 
 function keyPressed() {
- if (keyDown( DOWN_ARROW)) {
-    packageSprite.velocityY=3
-isStatis.true;
+ if (keyCode === DOWN_ARROW) {
+    Matter.Body.setStatic(packageBody,false);
     
   }
 }
-
-
-
